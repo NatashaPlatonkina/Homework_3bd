@@ -6,7 +6,7 @@ SELECT name, duration FROM track
 	LIMIT 1;
 	
 SELECT name FROM track
-	WHERE duration >=210;
+	WHERE duration >=3.5*60;
 	
 SELECT name FROM collection
 	WHERE year_of_release BETWEEN 2018 AND 2020;
