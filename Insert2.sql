@@ -8,7 +8,7 @@ INSERT INTO genre_artist(genre_id, artist_id)
 	VALUES (1,4), (1,7), (2,2), (2,3), (3,1), (4,6), (5,5), (5,8);
 
 INSERT INTO album(name, year_of_release) 
-	VALUES ('Blackout', 1982), ('Крылья', 1995), ('Moloko', 2006), ('Doggystyle', 1993), ('Thank U, Next', 2018), ('Louis and the Angels', 1957), ('Горгород', 2015), ('Мой рай', 2007);
+	VALUES ('Blackout', 1982), ('Крылья', 1995), ('Moloko', 2006), ('Doggystyle', 1993), ('Thank U, Next', 2020), ('Louis and the Angels', 1957), ('Горгород', 2019), ('Мой рай', 2007);
 
 INSERT INTO artist_album(artist_id, album_id)
 	VALUES (1,1), (2,2), (3,3), (4,4), (5,5), (6,6), (7,7), (8,8); 
