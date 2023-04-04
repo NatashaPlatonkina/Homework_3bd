@@ -2,19 +2,21 @@ SELECT g.name, COUNT (artist_id) FROM genre_artist ga
 	LEFT JOIN genre g ON ga.genre_id = g.genre_id
 	GROUP BY g.name
 
-SELECT a.name, COUNT (track_id) FROM album a 
-	JOIN track t ON a.album_id = t.track_id 
+SELECT COUNT (track_id) FROM track t 
+	JOIN album a ON t.album_id = a.album_id 
 	WHERE a.year_of_release BETWEEN 2019 and 2020
-	GROUP BY a.name 
+	 
 
 SELECT a.name, AVG(t.duration) FROM album a 
 	JOIN track t ON a.album_id = t.album_id 
 	GROUP BY a.name 
 
-SELECT a.name FROM artist a 
+SELECT a.name FROM artist a
+	WHERE a.name NOT IN (
+	SELECT a.name FROM artist a
 	JOIN artist_album aa ON a.artist_id = aa.artist_id 
 	JOIN album a2 ON a2.album_id = aa.album_id 
-	WHERE a2.year_of_release < 2020
+	WHERE a2.year_of_release = 2020
 
 SELECT c.name FROM collection c 
 	JOIN track_collection tc ON c.collection_id = tc.collection_id 
@@ -32,7 +34,7 @@ SELECT a.name, COUNT(g.name) FROM album a
 	GROUP BY a2.name, a.name
 	HAVING COUNT(ga.genre_id)>1 
 
-SELECT t.name FROM track t 
+7. SELECT t.name FROM track t 
 	JOIN track_collection tc ON tc.track_id = t.track_id 
 	WHERE tc.collection_id IS NULL 
 
@@ -46,7 +48,7 @@ SELECT a.name, COUNT(t.track_id) FROM album a
 	JOIN track t ON a.album_id = t.album_id 
 	GROUP BY a.name
 	HAVING COUNT(t.track_id) IN (
-		AELECT COUNT(t.track_id) FROM album a
+		SELECT COUNT(t.track_id) FROM album a
 		JOIN track t ON a.album_id = t.album_id 
 		GROUP BY a.name
 		ORDER BY COUNT(t.track_id)
